@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เปรียบเทียบ OOP ใน Java, C++, และ Python</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #4682b4;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.5rem;
+        }
+        section {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        h2 {
+            color: #4682b4;
+        }
+        .code-example {
+            background-color: #f8f9fa;
+            border-left: 5px solid #4682b4;
+            padding: 15px;
+            margin: 10px 0;
+            white-space: pre-wrap;
+        }
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .comparison-table th, .comparison-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        .comparison-table th {
+            background-color: #4682b4;
+            color: white;
+        }
+        .comparison-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>การเปรียบเทียบการเขียนโปรแกรมแบบ OOP ใน Java, C++, และ Python</h1>
+</header>
+
+<section>
+    <h2>ความเหมือน</h2>
+    <p>ทั้งสามภาษามีพื้นฐานการเขียนแบบ Object-Oriented Programming (OOP) ที่คล้ายคลึงกัน เช่น:</p>
+    <ul>
+        <li>การสร้างคลาสและออบเจ็กต์</li>
+        <li>การใช้ inheritance และ polymorphism</li>
+        <li>การใช้ methods และ constructors</li>
+    </ul>
+
+    <h2>ความแตกต่าง</h2>
+    <p>อย่างไรก็ตาม แต่ละภาษามีความแตกต่างในด้าน syntax และการจัดการบางอย่าง:</p>
+
+    <table class="comparison-table">
+        <tr>
+            <th>ลักษณะ</th>
+            <th>Java</th>
+            <th>C++</th>
+            <th>Python</th>
+        </tr>
+        <tr>
+            <td>การประกาศคลาส</td>
+            <td>ใช้คีย์เวิร์ด <code>class</code></td>
+            <td>ใช้คีย์เวิร์ด <code>class</code></td>
+            <td>ใช้คีย์เวิร์ด <code>class</code></td>
+        </tr>
+        <tr>
+            <td>การใช้ inheritance</td>
+            <td>ใช้ <code>extends</code></td>
+            <td>ใช้ <code>:</code> และระบุคลาสพ่อแม่</td>
+            <td>ใช้ <code>(parent_class)</code></td>
+        </tr>
+        <tr>
+            <td>การจัดการหน่วยความจำ</td>
+            <td>Garbage Collection อัตโนมัติ</td>
+            <td>จัดการด้วยตัวเอง</td>
+            <td>Garbage Collection อัตโนมัติ</td>
+        </tr>
+    </table>
+
+    <h2>ตัวอย่างโค้ด</h2>
+
+    <h3>Java</h3>
+    <div class="code-example">
+        <code>
+            class Animal {
+                String name;
+                
+                Animal(String name) {
+                    this.name = name;
+                }
+                
+                void speak() {
+                    System.out.println("Animal sound");
+                }
+            }
+
+            class Dog extends Animal {
+                Dog(String name) {
+                    super(name);
+                }
+                
+                void speak() {
+                    System.out.println("Bark");
+                }
+            }
+
+            public class Main {
+                public static void main(String[] args) {
+                    Animal dog = new Dog("Buddy");
+                    dog.speak();  // Output: Bark
+                }
+            }
+        </code>
+    </div>
+
+    <h3>C++</h3>
+    <div class="code-example">
+        <code>
+            #include <iostream>
+            using namespace std;
+
+            class Animal {
+            protected:
+                string name;
+            public:
+                Animal(string n) : name(n) {}
+                virtual void speak() {
+                    cout << "Animal sound" << endl;
+                }
+            };
+
+            class Dog : public Animal {
+            public:
+                Dog(string n) : Animal(n) {}
+                void speak() override {
+                    cout << "Bark" << endl;
+                }
+            };
+
+            int main() {
+                Animal* dog = new Dog("Buddy");
+                dog->speak();  // Output: Bark
+                delete dog;
+                return 0;
+            }
+        </code>
+    </div>
+
+    <h3>Python</h3>
+    <div class="code-example">
+        <code>
+            class Animal:
+                def __init__(self, name):
+                    self.name = name
+
+                def speak(self):
+                    print("Animal sound")
+
+            class Dog(Animal):
+                def speak(self):
+                    print("Bark")
+
+            dog = Dog("Buddy")
+            dog.speak()  # Output: Bark
+        </code>
+    </div>
+
+    <h2>สรุป</h2>
+    <p>ทั้งสามภาษาแม้จะมีโครงสร้างที่คล้ายคลึงกันในแง่ของ OOP แต่ก็มีความแตกต่างกันในรายละเอียด syntax และวิธีการจัดการหน่วยความจำ รวมถึงการเขียนโค้ดบางส่วนที่ไม่เหมือนกัน</p>
+</section>
+
+</body>
+</html>
